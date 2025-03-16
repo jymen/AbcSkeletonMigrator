@@ -1,5 +1,7 @@
 <script lang="ts">
   import Icon from '@iconify/svelte';
+  import { goto } from '$app/navigation';
+
   import { AppBar } from '@skeletonlabs/skeleton-svelte';
   import DarkModeSwitcher from './DarkModeSwitcher.svelte';
   import AbcLanguage from './AbcLanguage.svelte';
@@ -13,8 +15,8 @@
     <AbcLanguage />
   {/snippet}
   {#snippet trail()}
-    <Icon icon="mdi:paperclip" size={20} />
-    <Icon icon="solar:calendar" size={20} />
+    <Icon icon="mdi:paperclip" />
+    <Icon icon="solar:calendar" />
     <DarkModeSwitcher />
   {/snippet}
   <span>Title</span>

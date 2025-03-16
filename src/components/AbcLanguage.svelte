@@ -1,7 +1,6 @@
 <script lang="ts">
   import { Combobox } from '@skeletonlabs/skeleton-svelte';
 	import { onMount } from 'svelte';
-	import Icon from '@iconify/svelte';
 	import { _, locale, locales } from 'svelte-i18n';
 
   interface ComboboxData {
@@ -11,11 +10,11 @@
   }
 
   const comboboxData: ComboboxData[] = [
-    { label: 'English', value: 'En', emoji: '🇬🇧' },
-    { label: 'Francais', value: 'FR', emoji: '🇫🇷' },
+    { label: 'English', value: 'lang.En', emoji: '🇬🇧' },
+    { label: 'Francais', value: 'Lang.Fr', emoji: '🇫🇷' },
   ];
 
-  let selectedCountry = $state(['US']);
+  let selectedLanguage = $state([comboboxData[0].value]);
 
   onMount(() => {
 		console.log('AbcLanguage mounted => check locales : ', $locales);
@@ -25,8 +24,8 @@
 
 <Combobox
   data={comboboxData}
-  value={selectedCountry}
-  onValueChange={(e) => (selectedCountry = e.value)}
+  value={selectedLanguage}
+  onValueChange={(e) => (selectedLanguage = e.value)}
   placeholder="Language..."
 >
   <!-- This is optional. Combobox will render label by default -->
