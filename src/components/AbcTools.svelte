@@ -11,6 +11,14 @@
 	function hasText() {
 		return text !== undefined;
 	}
+
+	function computeClass() {
+		if (hasText()) {
+			return '';
+		}
+		return 'btn-icon preset-filled bg-surface-200/40';
+	}	
+
 </script>
 
 <form
@@ -24,7 +32,7 @@ button type="submit" title="Abc tools" class= "{hasText() ? 'listBoxItem' : 'btn
 	<button
 		type="submit"
 		title="Abc tools"
-		class="{hasText() ? 'listBoxItem' : 'btn-icon preset-filled'} bg-surface-200/40"
+		class={computeClass()}
 	>
 		<AbcTextIcon {text} icon="mdi:tools" />
 	</button>

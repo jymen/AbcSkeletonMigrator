@@ -7,10 +7,17 @@
 	function hasText() {
 		return text !== undefined;
 	}
+
+	function computeClass() {
+		if (hasText()) {
+			return '';
+		}
+		return 'btn-icon preset-filled bg-surface-200/40';
+	}	
 </script>
 
 <button
-	class="{hasText() ? 'listBoxItem' : 'btn-icon preset-filled'} bg-surface-200/40"
+	class={computeClass()}
 	title="Import"
 	on:click={() => goto('/import', { replaceState: false })}
 >

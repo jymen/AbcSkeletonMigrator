@@ -22,11 +22,12 @@
 </script>
 
 <Popover
+
   open={openState}
   onOpenChange={(e) => (openState = e.open)}
   positioning={{ placement: 'bottom' }}
   triggerBase="btn preset-tonal"
-  contentBase="card bg-surface-200-800 p-4 space-y-4 max-w-[320px]"
+  contentBase="card bg-surface-100 dark:bg-surface-800 p-4 space-y-4 max-w-[320px]"
   arrow
   arrowBackground="!bg-surface-200 dark:!bg-surface-800"
 >
@@ -39,18 +40,18 @@
     <header class="flex justify-between">
     </header>
     <article>
-			<div class="hover:bg-primary-500 py-1">
+			<div class="rounded-lg hover:bg-surface-200/70">
 				<AbcImport text="Import" />
 			</div>
-			<div class="hover:bg-primary-500 py-1">
+			<div class="rounded-lg hover:bg-surface-200/70">
 				<AbcTools text="Abc tools" />
 			</div>
-			<div class="hover:bg-primary-500 py-1">
+			<div class="rounded-lg hover:bg-surface-200/70">
 				<button class="listbox-item" onclick={messageSelected}>
 					<AbcTextIcon text="show last message" icon="ep:warning" />
 				</button>
 			</div>
-			<div class="hover:bg-primary-500 py-1">
+			<div class="rounded-lg hover:bg-surface-200/70">
 				<AbcHelp text="help" />
 			</div>
 		</article>
