@@ -3,11 +3,29 @@
 */
 
 import { type Writable, writable } from "svelte/store";
+import { AbcMessageHandler } from "$utils/AbcMessageHandler";
+
+import {
+  SessionData,
+  AbcFolder,
+  AbcFile,
+  Leaf,
+  ROOT_FOLDER,
+  ABCOid,
+} from "$data/ABCData";
 
 class AbcMessage {
   msg: string = "Ok";
   typ: string = "info";
 }
+
+// the store will automatically infer the type from the initial value
+export const messageHandler = writable(
+  new AbcMessageHandler(
+    true, // initialy show
+    3000 // disapear after 3 seconds
+  )
+);
 
 export class AbcScoreData {
   oid: number;
@@ -37,6 +55,7 @@ class AbcStore {
   constructor(
     public isAdmin: Writable<boolean> = writable(false),
     public darkMode: Writable<boolean> = writable(false),
+    public loggedUser: Writable<SessionData> = writable(new SessionData()),
     public logOutAction: Writable<boolean> = writable(false),
     public scoreContext: Writable<ScoreContexts> = writable(new ScoreContexts())
   ) {}
