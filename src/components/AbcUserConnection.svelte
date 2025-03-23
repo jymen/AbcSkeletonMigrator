@@ -44,6 +44,12 @@
 		}
 	}
 
+	$effect.pre(() => {
+		if ($loggedUser.isConnected) {
+			logoutPanel = true;
+		}
+	});
+
 	function cancelAction() {
 		logoutPanel = false;
 	}

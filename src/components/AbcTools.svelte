@@ -3,7 +3,6 @@
 -->
 
 <script lang="ts">
-	import Icon from '@iconify/svelte';
 	import AbcTextIcon from '$src/components/AbcTextIcon.svelte';
 
 	export let text: string | undefined = undefined;
@@ -17,8 +16,7 @@
 			return '';
 		}
 		return 'btn-icon preset-filled bg-surface-200/40';
-	}	
-
+	}
 </script>
 
 <form
@@ -26,14 +24,7 @@
 	target="_blank"
 	rel="noopener noreferrer"
 >
-	<!--<
-button type="submit" title="Abc tools" class= "{hasText() ? 'listBoxItem' : 'btn-icon variant-filled'}" >
-	-->
-	<button
-		type="submit"
-		title="Abc tools"
-		class={computeClass()}
-	>
+	<button type="submit" title="Abc tools" class={computeClass()}>
 		<AbcTextIcon {text} icon="mdi:tools" />
 	</button>
 </form>

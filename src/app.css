@@ -1,13 +1,58 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
-@import "@skeletonlabs/skeleton";
-@import "@skeletonlabs/skeleton/optional/presets";
-@import "@skeletonlabs/skeleton/themes/cerberus";
-@import "@skeletonlabs/skeleton/themes/mint";
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton/themes/mint';
 
 @source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+/* Add each custom preset to your global stylesheet. */
+
+.preset-title {
+	@apply font-semibold text-sm md:text-xl italic text-surface-500 uppercase cursor-pointer;
+}
+
+.preset-button-ok {
+	@apply bg-surface-300;
+	opacity: 0.7;
+}
+
+.preset-button-cancel {
+	@apply bg-error-300;
+	opacity: 0.7;
+}
+
+.preset-form {
+	@apply bg-surface-100;
+}
+
+.preset-form-input-text {
+	@apply input;
+	@apply border;
+	@apply focus:outline-none focus:ring focus:border-primary-500;
+}
+
+/* dark mode */
+
+.dark .preset-title {
+	@apply font-semibold text-sm md:text-xl italic text-surface-200 uppercase cursor-pointer;
+}
+
+.dark .preset-button-ok {
+	@apply bg-surface-400;
+	opacity: 0.7;
+}
+
+.dark .preset-button-cancel {
+	@apply bg-error-700;
+	opacity: 0.7;
+}
+
+.dark .preset-form {
+	@apply bg-surface-600;
+}

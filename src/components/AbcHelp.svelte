@@ -19,8 +19,7 @@
 			return '';
 		}
 		return 'btn-icon preset-filled bg-surface-200/40';
-	}	
-
+	}
 </script>
 
 <button

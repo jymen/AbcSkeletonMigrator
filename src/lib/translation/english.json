@@ -1,0 +1,20 @@
+{
+	"repository": {
+		"creation-date": "Creation {{val}}"
+	},
+	"home": {
+		"welcome": "Welcome to AbcMusicStudio",
+		"repoClick": "click bellow to enter your repository :",
+		"repository": "Your music repository"
+	},
+	"login": {
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"mailAdress": "Mail Adress",
+		"Cancel": "Cancel",
+		"password": "Password"
+	},
+	"fallback": {
+		"fallbackKey": "hi there"
+	}
+}
