@@ -6,8 +6,6 @@
 
 	let nodeRef: Element | undefined = $state(undefined);
 
-	let classColor = $state(new TypTransformer($abcMessage.typ).toClassColor());
-
 	/* fade bottom message out */
 	function timeMsgHandler() {
 		if ($messageHandler.hasTimer && $messageHandler.visible) {
@@ -27,10 +25,8 @@
 	});
 </script>
 
-{#if $messageHandler.visible}
-	<div bind:this={nodeRef} transition:fade={{ delay: 100, duration: 100 }}>
-		<div class="alert bg-{classColor}-500">
-			<p class="text-secondary-500">{$abcMessage.msg}</p>
-		</div>
+<div bind:this={nodeRef} transition:fade={{ delay: 100, duration: 100 }}>
+	<div class="alert">
+		<p class="text-primary-100 {$messageHandler.visible ? '' : 'invisible'}">{$abcMessage.msg}</p>
 	</div>
-{/if}
+</div>

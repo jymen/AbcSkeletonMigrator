@@ -45,14 +45,11 @@
 	}
 
 	$effect.pre(() => {
+		console.log(`loggedUser : ${$loggedUser.email}`);
 		if ($loggedUser.isConnected) {
 			logoutPanel = true;
 		}
 	});
-
-	function cancelAction() {
-		logoutPanel = false;
-	}
 
 	function loggedInAction() {
 		if ($loggedUser.isConnected) {
@@ -80,30 +77,31 @@
 			<Icon
 				height="1.75em"
 				width="1.75em"
-				class={$loggedUser.isConnected ? 'text-success-400' : 'text-error-400'}
+				class={$loggedUser.isConnected ? 'text-success-700' : 'text-error-400'}
 				icon="mingcute:user-3-line"
 			/>
 		</span>
 	{/snippet}
 	{#snippet content()}
-		<header class="flex justify-between"></header>
 		<article>
 			<p class="opacity-60"></p>
 			<div class="card p-4 preset-filled-warning-500" data-popup="popupClick">
 				{#if logoutPanel}
-					<aside class="alert preset-tonal-warning border border-warning-500">
+					<aside class="">
 						<!-- Message -->
 						<div class="flex flex-row alert-message">
 							<!-- Icon -->
 							<Icon icon="mingcute:user-3-line" height="1.75em" width="1.75em" />
-							<p class="mx-4">please confirm logout for {$loggedUser.email}</p>
+							<p class="mx-4 text-tertiary-500 dark:text-tertiary-200">
+								please confirm logout for {$loggedUser.email}
+							</p>
 						</div>
 						<!-- Actions -->
-						<div class="alert-actions">
-							<button type="button" class="btn btn-sm preset-filled" onclick={logoutAction}
+						<div class="pt-4 mx-2 flex flex-row items-center justify-center space-x-2">
+							<button type="button" class="btn btn-sm preset-button-ok" onclick={logoutAction}
 								>Ok</button
 							>
-							<button type="button" class="btn btn-sm preset-filled" onclick={cancelAction}
+							<button type="button" class="btn btn-sm preset-button-cancel" onclick={popoverClose}
 								>Cancel</button
 							>
 						</div>

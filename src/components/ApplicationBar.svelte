@@ -27,11 +27,11 @@
 		<button class="button preset-title" on:click={() => goto('/', { replaceState: false })}
 			>AbcMusicStudio</button
 		>
-		<AbcLanguage />
 		<AbcUserConnection />
 	{/snippet}
 	{#snippet trail()}
 		<div class="flex space-x-2 max-md:hidden">
+			<AbcLanguage />
 			<AbcImport />
 			<AbcTools />
 			<button
@@ -43,10 +43,15 @@
 			</button>
 			<AbcHelp />
 			<DarkModeSwitcher />
+			<AbcTogleAdmin />
 		</div>
-		<AbcTogleAdmin />
 		<div class="md:hidden">
 			<AbcBurger />
 		</div>
 	{/snippet}
 </AppBar>
+<div
+	class="md:hidden border-solid rounded-lg mx-2 my-4 border border-primary-200 dark:border-surface-800"
+>
+	<AbcLanguage />
+</div>

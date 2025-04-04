@@ -6,6 +6,7 @@ import { type Writable, writable } from 'svelte/store';
 import { AbcMessageHandler } from '$utils/AbcMessageHandler';
 
 import { SessionData, AbcFolder, AbcFile, Leaf, ROOT_FOLDER, ABCOid } from '$data/ABCData';
+import type { Tablature } from 'abcjs';
 
 class AbcMessage {
 	msg: string = 'Ok';
@@ -20,9 +21,15 @@ export const messageHandler = writable(
 	)
 );
 
+class AbcLineContext {
+	file?: AbcFile;
+	folder?: AbcFolder;
+}
+
 export class AbcScoreData {
 	oid: number;
 	tablatureChecked: boolean = false;
+	tabInstrument: Tablature = {};
 
 	constructor(oid: number) {
 		this.oid = oid;
@@ -34,6 +41,12 @@ class ScoreContexts {
 
 	addContext(oid: number) {
 		this.contexts[oid] = new AbcScoreData(oid);
+	}
+
+	updateContext(oid: number, tablatureChecked: boolean, tablature: Tablature) {
+		let ctx = this.contexts[oid];
+		ctx.tablatureChecked = tablatureChecked;
+		ctx.tabInstrument = tablature;
 	}
 
 	getContext(oid: number): AbcScoreData {
@@ -50,7 +63,12 @@ class AbcStore {
 		public darkMode: Writable<boolean> = writable(false),
 		public loggedUser: Writable<SessionData> = writable(new SessionData()),
 		public logOutAction: Writable<boolean> = writable(false),
-		public scoreContext: Writable<ScoreContexts> = writable(new ScoreContexts())
+		public currentRoot: Writable<AbcFolder> = writable(
+			new AbcFolder(new Leaf(ROOT_FOLDER), undefined, new ABCOid(0))
+		),
+		public tablatureChanged: Writable<number> = writable(0),
+		public scoreContext: Writable<ScoreContexts> = writable(new ScoreContexts()),
+		public currentLineContext: Writable<AbcLineContext> = writable(new AbcLineContext())
 	) {}
 }
 

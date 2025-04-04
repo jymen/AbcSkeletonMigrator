@@ -52,6 +52,7 @@
 	onValueChange={languageChanged}
 	contentBackground="bg-surface-200 dark:bg-surface-700"
 	optionActive="bg-surface-100 dark:bg-surface-500"
+	positionerBase="border rounded-lg border-primary-200 dark:border-surface-200"
 	{placeholder}
 >
 	<!-- This is optional. Combobox will render label by default -->

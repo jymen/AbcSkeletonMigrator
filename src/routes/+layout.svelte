@@ -14,7 +14,7 @@
 	import '../app.css';
 
 	const { loggedUser, logOutAction } = abcStore;
-	let { children } = $props();
+	let { data, children } = $props();
 
 	function toggleMsgHandler() {
 		console.log('Togling msg handler');
@@ -28,13 +28,11 @@
 
 		if (!$logOutAction) {
 			// check that server cookies is still operational
-			/*
-			if (data.oid != undefined) {
+			if (data.oid != undefined && $loggedUser.oid != data.oid) {
 				$loggedUser = new SessionData(data.oid, data.email);
 			}
 			console.log(`current session: ${data}`);
 			console.log(`loggedUser: ${$loggedUser.oid}`);
-			*/
 		}
 	});
 
@@ -45,14 +43,15 @@
 	});
 </script>
 
-<div class="grid grid-rows-[auto_1fr_auto] h-screen">
+<div class="h-screen flex flex-col justify-start">
 	<header class="p-4">
 		<ApplicationBar />
 	</header>
 	{@render children()}
-
-	<footer class="p-4">
-		<AbcBottomMessage />
-		<AbcCopyright copyright="© 2021-2024 Copyright Jean-Yves Mengant" />
-	</footer>
+	<div class="fixed bottom-0 p-4">
+		<footer class="p-4">
+			<AbcBottomMessage />
+			<AbcCopyright copyright="© 2021-2024 Copyright Jean-Yves Mengant" />
+		</footer>
+	</div>
 </div>
