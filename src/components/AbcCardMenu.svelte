@@ -2,16 +2,15 @@
 	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 	import { Popover } from '@skeletonlabs/skeleton-svelte';
 	import AbcTablaturePanel from './AbcTablaturePanel.svelte';
-	import { type Snippet } from 'svelte';
 
 	// tablature and oid are used for tablature only
 	let {
+		child,
 		buttonLabel = 'label',
 		image = 'non',
 		panelLabel = undefined,
 		tablature = false,
-		oid = undefined,
-		children: Snippet
+		oid = undefined
 	} = $props();
 
 	let openState = $state(false);
@@ -59,7 +58,7 @@
 					{#if tablature}
 						<AbcTablaturePanel {oid} />
 					{/if}
-					<slot />
+					{@render child()}
 				</section>
 
 				<div class="arrow preset-filled-primary-500"></div>

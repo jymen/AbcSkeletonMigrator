@@ -458,6 +458,8 @@ just a new standard line after last item list
 
 <style lang="postcss">
 	@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
+	@reference "../app.css";
+
 	.markdown {
 		@apply bg-primary-300;
 	}

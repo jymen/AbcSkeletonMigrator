@@ -336,6 +336,7 @@
 
 <style lang="postcss">
 	/*body { @apply bg-primary-50-900-token; } */
+	@reference "../app.css";
 
 	.abcjs-container {
 		@apply bg-secondary-50 dark:bg-secondary-600;

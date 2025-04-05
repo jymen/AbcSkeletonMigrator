@@ -15,7 +15,7 @@
 </script>
 
 <div>
-	<AbcCardMenu buttonLabel="Transpose" panelLabel="by 1 semitone" image={transpositionImg}>
+	{#snippet child()}
 		<div class="flex flex-row">
 			<a href={null} type="button" class="mx-2 btn btn-sm preset-filled" on:click={transposePlus}>
 				<Icon icon="mdi:plus" height="2em" width="2em" />
@@ -24,5 +24,12 @@
 				<Icon icon="mdi:minus" height="2em" width="2em" />
 			</a>
 		</div>
-	</AbcCardMenu>
+	{/snippet}
+
+	<AbcCardMenu
+		{child}
+		buttonLabel="Transpose"
+		panelLabel="by 1 semitone"
+		image={transpositionImg}
+	/>
 </div>

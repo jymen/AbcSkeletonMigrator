@@ -143,7 +143,6 @@
 
 <style lang="postcss">
 	.selected {
-		@apply preset-outlined;
 	}
 	/* Style the tab */
 	.tab {
