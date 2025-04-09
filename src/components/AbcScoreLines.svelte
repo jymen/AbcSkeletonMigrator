@@ -233,7 +233,7 @@
 			></AbcScoreLine>
 		{/if}
 		{#each slicedSource(sourceData) as pe, i}
-			<ul class="list">
+			<ul class="list px-4 my-0">
 				<li>
 					<AbcScoreLine
 						card={new FileFolderCard(pe, computeIndex(i))}

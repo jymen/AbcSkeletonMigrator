@@ -9,7 +9,6 @@
 	import { messageHandler, abcMessage } from '$src/store';
 
 	import { SessionData } from '$src/data/ABCData';
-	import type { PageProps } from './$types';
 
 	import '../app.css';
 

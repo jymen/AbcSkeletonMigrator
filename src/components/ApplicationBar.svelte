@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Icon from '@iconify/svelte';
 	import { goto } from '$app/navigation';
 
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
@@ -24,7 +23,7 @@
 
 <AppBar border="rounded-2xl" classes="bg-surface-100 dark:bg-surface-500">
 	{#snippet lead()}
-		<button class="button preset-title" on:click={() => goto('/', { replaceState: false })}
+		<button class="button preset-title" onclick={() => goto('/', { replaceState: false })}
 			>AbcMusicStudio</button
 		>
 		<AbcUserConnection />
@@ -36,7 +35,7 @@
 			<AbcTools />
 			<button
 				type="button"
-				on:click={toggleMsgHandler}
+				onclick={toggleMsgHandler}
 				class="btn-icon preset-filled bg-surface-200/40"
 			>
 				<AbcTextIcon icon="ep:warning" />

@@ -27,13 +27,13 @@
 
 	let tabSet: number = 0;
 	// $: isOpen = card.isOpen;
-	$: scoreLineClass = 'font-bold h3';
+	$: scoreLineClass = 'font-bold h6';
 
 	function doFileClose() {
 		if (card.isOpen) {
-			scoreLineClass = 'font-bold h1';
+			scoreLineClass = 'font-bold h8';
 		} else {
-			scoreLineClass = 'font-bold h3';
+			scoreLineClass = 'font-bold h6';
 		}
 	}
 
@@ -114,7 +114,7 @@
 	<!-- Updating Form for markdown infos-->
 	<AbcDbUpdater bind:doUpdate={updater_doUpdate} {card} />
 
-	<header class="p-4 flex justify-start items-center space-x-4">
+	<header class="p-1 flex justify-start items-center space-x-4">
 		<button
 			type="button"
 			on:click={handleClick}
@@ -126,6 +126,7 @@
 					name="icon"
 					background="bg-transparent"
 					rounded="rounded-none"
+					size="w-10 h-10"
 				>
 					<img alt="Score Line Icon" src={card.element.d.image} width={card.element.d.width} />
 				</Avatar>

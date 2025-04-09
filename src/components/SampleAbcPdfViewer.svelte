@@ -22,12 +22,9 @@
 	export let url: string | undefined = undefined;
 	export let data: string | undefined = undefined;
 	export let pageNum: number = 1;
-	export let deleteScore: () => void;
-
-	// CAVEAT : CHANGE pdf worker version link below UPON pdfjs paccjkage version changes
-	// check Mozilla site : https://mozilla.github.io/pdf.js/
-	// pdfjs.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@4.4.168/build/pdf.mjs';
-	pdfjs.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.mjs';
+	export let deleteScore: () => void = () => {
+		console.log('delete score not implemented');
+	};
 
 	let pdf;
 	let pdfCanvas;
@@ -41,6 +38,10 @@
 
 	const initialLoad = async () => {
 		console.log('loading pdf entered ...');
+		// CAVEAT : CHANGE pdf worker version link below UPON pdfjs paccjkage version changes
+		// check Mozilla site : https://mozilla.github.io/pdf.js/
+		// pdfjs.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@4.4.168/build/pdf.mjs';
+		pdfjs.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.mjs';
 		if (url == undefined && data == undefined) {
 			console.error('PDF document not specified for SampleAbcPdfViewer');
 			return;
